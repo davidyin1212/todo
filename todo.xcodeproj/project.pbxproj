@@ -19,6 +19,15 @@
 		3940DCEA17C163E70061E765 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3940DCE817C163E70061E765 /* MainStoryboard.storyboard */; };
 		3940DCED17C163E70061E765 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3940DCEC17C163E70061E765 /* MasterViewController.m */; };
 		3940DCF017C163E70061E765 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3940DCEF17C163E70061E765 /* DetailViewController.m */; };
+		3940DCF717C1647E0061E765 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3940DCF617C1647E0061E765 /* libsqlite3.0.dylib */; };
+		3940DCFC17C164B40061E765 /* Todo.h in Resources */ = {isa = PBXBuildFile; fileRef = 3940DCF817C164B40061E765 /* Todo.h */; };
+		3940DCFD17C164B40061E765 /* Todo.m in Resources */ = {isa = PBXBuildFile; fileRef = 3940DCF917C164B40061E765 /* Todo.m */; };
+		3940DD0517C168F70061E765 /* green.png in Resources */ = {isa = PBXBuildFile; fileRef = 3940DD0217C168F70061E765 /* green.png */; };
+		3940DD0617C168F70061E765 /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = 3940DD0317C168F70061E765 /* red.png */; };
+		3940DD0717C168F70061E765 /* yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = 3940DD0417C168F70061E765 /* yellow.png */; };
+		3940DD0917C169CC0061E765 /* Todo.m in Sources */ = {isa = PBXBuildFile; fileRef = 3940DCF917C164B40061E765 /* Todo.m */; };
+		3940DD0C17C170490061E765 /* TodoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3940DD0B17C170490061E765 /* TodoCell.m */; };
+		3940DD0E17C172DD0061E765 /* todo.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 3940DD0D17C172DD0061E765 /* todo.sqlite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +49,15 @@
 		3940DCEC17C163E70061E765 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		3940DCEE17C163E70061E765 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		3940DCEF17C163E70061E765 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		3940DCF617C1647E0061E765 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		3940DCF817C164B40061E765 /* Todo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Todo.h; path = ../Todo.h; sourceTree = "<group>"; };
+		3940DCF917C164B40061E765 /* Todo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Todo.m; path = ../Todo.m; sourceTree = "<group>"; };
+		3940DD0217C168F70061E765 /* green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = green.png; path = ../green.png; sourceTree = "<group>"; };
+		3940DD0317C168F70061E765 /* red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = red.png; path = ../red.png; sourceTree = "<group>"; };
+		3940DD0417C168F70061E765 /* yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = yellow.png; path = ../yellow.png; sourceTree = "<group>"; };
+		3940DD0A17C170490061E765 /* TodoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoCell.h; sourceTree = "<group>"; };
+		3940DD0B17C170490061E765 /* TodoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoCell.m; sourceTree = "<group>"; };
+		3940DD0D17C172DD0061E765 /* todo.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = todo.sqlite; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3940DCF717C1647E0061E765 /* libsqlite3.0.dylib in Frameworks */,
 				3940DCD117C163E70061E765 /* UIKit.framework in Frameworks */,
 				3940DCD317C163E70061E765 /* Foundation.framework in Frameworks */,
 				3940DCD517C163E70061E765 /* CoreGraphics.framework in Frameworks */,
@@ -76,6 +95,7 @@
 		3940DCCF17C163E70061E765 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3940DCF617C1647E0061E765 /* libsqlite3.0.dylib */,
 				3940DCD017C163E70061E765 /* UIKit.framework */,
 				3940DCD217C163E70061E765 /* Foundation.framework */,
 				3940DCD417C163E70061E765 /* CoreGraphics.framework */,
@@ -86,13 +106,8 @@
 		3940DCD617C163E70061E765 /* todo */ = {
 			isa = PBXGroup;
 			children = (
-				3940DCDF17C163E70061E765 /* AppDelegate.h */,
-				3940DCE017C163E70061E765 /* AppDelegate.m */,
-				3940DCE817C163E70061E765 /* MainStoryboard.storyboard */,
-				3940DCEB17C163E70061E765 /* MasterViewController.h */,
-				3940DCEC17C163E70061E765 /* MasterViewController.m */,
-				3940DCEE17C163E70061E765 /* DetailViewController.h */,
-				3940DCEF17C163E70061E765 /* DetailViewController.m */,
+				3940DD0117C164C00061E765 /* Model */,
+				3940DD0017C164B90061E765 /* GUI */,
 				3940DCD717C163E70061E765 /* Supporting Files */,
 			);
 			path = todo;
@@ -101,6 +116,10 @@
 		3940DCD717C163E70061E765 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3940DD0D17C172DD0061E765 /* todo.sqlite */,
+				3940DD0217C168F70061E765 /* green.png */,
+				3940DD0317C168F70061E765 /* red.png */,
+				3940DD0417C168F70061E765 /* yellow.png */,
 				3940DCD817C163E70061E765 /* todo-Info.plist */,
 				3940DCD917C163E70061E765 /* InfoPlist.strings */,
 				3940DCDC17C163E70061E765 /* main.m */,
@@ -110,6 +129,31 @@
 				3940DCE617C163E70061E765 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3940DD0017C164B90061E765 /* GUI */ = {
+			isa = PBXGroup;
+			children = (
+				3940DCDF17C163E70061E765 /* AppDelegate.h */,
+				3940DCE017C163E70061E765 /* AppDelegate.m */,
+				3940DCE817C163E70061E765 /* MainStoryboard.storyboard */,
+				3940DCEB17C163E70061E765 /* MasterViewController.h */,
+				3940DCEC17C163E70061E765 /* MasterViewController.m */,
+				3940DCEE17C163E70061E765 /* DetailViewController.h */,
+				3940DCEF17C163E70061E765 /* DetailViewController.m */,
+			);
+			name = GUI;
+			sourceTree = "<group>";
+		};
+		3940DD0117C164C00061E765 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3940DD0A17C170490061E765 /* TodoCell.h */,
+				3940DD0B17C170490061E765 /* TodoCell.m */,
+				3940DCF817C164B40061E765 /* Todo.h */,
+				3940DCF917C164B40061E765 /* Todo.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +207,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3940DD0E17C172DD0061E765 /* todo.sqlite in Resources */,
+				3940DD0517C168F70061E765 /* green.png in Resources */,
+				3940DD0617C168F70061E765 /* red.png in Resources */,
+				3940DD0717C168F70061E765 /* yellow.png in Resources */,
+				3940DCFC17C164B40061E765 /* Todo.h in Resources */,
+				3940DCFD17C164B40061E765 /* Todo.m in Resources */,
 				3940DCDB17C163E70061E765 /* InfoPlist.strings in Resources */,
 				3940DCE317C163E70061E765 /* Default.png in Resources */,
 				3940DCE517C163E70061E765 /* Default@2x.png in Resources */,
@@ -178,10 +228,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3940DD0917C169CC0061E765 /* Todo.m in Sources */,
 				3940DCDD17C163E70061E765 /* main.m in Sources */,
 				3940DCE117C163E70061E765 /* AppDelegate.m in Sources */,
 				3940DCED17C163E70061E765 /* MasterViewController.m in Sources */,
 				3940DCF017C163E70061E765 /* DetailViewController.m in Sources */,
+				3940DD0C17C170490061E765 /* TodoCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
