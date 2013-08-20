@@ -2,7 +2,7 @@
 //  DetailViewController.m
 //  todo
 //
-//  Created by David Yin on 2013-08-18.
+//  Created by David Yin on 2013-05-18.
 //  Copyright (c) 2013 David Yin. All rights reserved.
 //
 
@@ -47,6 +47,14 @@
 //        // Update the view.
 //        [self configureView];
 //    }
+}
+- (IBAction)updateText:(id)sender {
+    self.todo.text = self.todoText.text;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
 }
 
 - (void)configureView

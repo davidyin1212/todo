@@ -99,16 +99,10 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="OK" translatesAutoresizingMaskIntoConstraints="NO" id="bk9-oI-49p">
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="PSe-CV-URQ"/>
-                                    <constraint firstAttribute="width" constant="240" id="TNR-nT-oD4"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="tcU-74-dgf">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="vxa-dl-vt7"/>
+                                </constraints>
                                 <segments>
                                     <segment title="Low"/>
                                     <segment title="Medium"/>
@@ -145,15 +139,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Status:" translatesAutoresizingMaskIntoConstraints="NO" id="aaG-TI-u8t">
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="76" id="Bpc-xP-4tt"/>
-                                    <constraint firstAttribute="height" constant="35" id="xYo-cT-Lea"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Priority:" translatesAutoresizingMaskIntoConstraints="NO" id="hrI-PX-k67">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -163,25 +148,33 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <textField opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="oXm-pO-kxJ">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="252" id="oCr-ti-qaU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="updateText:" destination="21" eventType="editingDidEnd" id="Xgz-pG-daM"/>
+                                    <outlet property="delegate" destination="21" id="zle-2h-wdy"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wMC-As-9aR" firstAttribute="top" secondItem="aaG-TI-u8t" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="0E6-Bl-k2e"/>
-                            <constraint firstAttribute="bottom" secondItem="tcU-74-dgf" secondAttribute="bottom" constant="87" id="0cb-lO-tdz"/>
-                            <constraint firstItem="wMC-As-9aR" firstAttribute="trailing" secondItem="aaG-TI-u8t" secondAttribute="trailing" type="default" id="25b-We-hfB"/>
+                            <constraint firstAttribute="bottom" secondItem="z4e-yn-fhD" secondAttribute="bottom" constant="40" id="3dK-ba-upi"/>
                             <constraint firstItem="z4e-yn-fhD" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Bbz-yZ-CmD"/>
+                            <constraint firstItem="wMC-As-9aR" firstAttribute="centerX" secondItem="tcU-74-dgf" secondAttribute="centerX" type="default" id="BeO-Hr-Hy5"/>
                             <constraint firstItem="6nX-Wu-iVi" firstAttribute="top" secondItem="22" secondAttribute="top" constant="20" symbolic="YES" type="default" id="Bov-Lt-V40"/>
-                            <constraint firstItem="tcU-74-dgf" firstAttribute="top" secondItem="hrI-PX-k67" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="DlR-7O-FmL"/>
-                            <constraint firstItem="bk9-oI-49p" firstAttribute="top" secondItem="22" secondAttribute="top" constant="51" id="H9l-6t-MXL"/>
+                            <constraint firstItem="hrI-PX-k67" firstAttribute="leading" secondItem="6nX-Wu-iVi" secondAttribute="leading" type="default" id="Mme-7t-Das"/>
                             <constraint firstItem="6nX-Wu-iVi" firstAttribute="leading" secondItem="22" secondAttribute="leading" constant="27" id="NQI-ys-GMT"/>
-                            <constraint firstItem="z4e-yn-fhD" firstAttribute="centerX" secondItem="tcU-74-dgf" secondAttribute="centerX" type="default" id="Ogz-MF-IpA"/>
                             <constraint firstAttribute="trailing" secondItem="z4e-yn-fhD" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="POB-fe-71d"/>
-                            <constraint firstItem="bk9-oI-49p" firstAttribute="leading" secondItem="tcU-74-dgf" secondAttribute="leading" type="default" id="YYm-AF-jeH"/>
-                            <constraint firstItem="aaG-TI-u8t" firstAttribute="leading" secondItem="6nX-Wu-iVi" secondAttribute="leading" type="default" id="cdz-8A-K8y"/>
-                            <constraint firstAttribute="bottom" secondItem="z4e-yn-fhD" secondAttribute="bottom" constant="30" id="ek5-wA-lzQ"/>
-                            <constraint firstItem="bk9-oI-49p" firstAttribute="trailing" secondItem="tcU-74-dgf" secondAttribute="trailing" type="default" id="h0D-Tm-G2w"/>
-                            <constraint firstAttribute="bottom" secondItem="wMC-As-9aR" secondAttribute="bottom" constant="196" id="jCe-Dq-QDy"/>
-                            <constraint firstItem="hrI-PX-k67" firstAttribute="leading" secondItem="aaG-TI-u8t" secondAttribute="leading" type="default" id="rIA-p8-xOy"/>
+                            <constraint firstAttribute="bottom" secondItem="wMC-As-9aR" secondAttribute="bottom" constant="224" id="TvF-8M-7gy"/>
+                            <constraint firstAttribute="bottom" secondItem="tcU-74-dgf" secondAttribute="bottom" constant="115" id="Z6D-uh-773"/>
+                            <constraint firstItem="oXm-pO-kxJ" firstAttribute="top" secondItem="6nX-Wu-iVi" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="aO0-kV-TBu"/>
+                            <constraint firstItem="wMC-As-9aR" firstAttribute="centerX" secondItem="z4e-yn-fhD" secondAttribute="centerX" type="default" id="nXf-xT-eea"/>
+                            <constraint firstItem="wMC-As-9aR" firstAttribute="centerX" secondItem="oXm-pO-kxJ" secondAttribute="centerX" type="default" id="s3L-ar-ctv"/>
+                            <constraint firstAttribute="bottom" secondItem="hrI-PX-k67" secondAttribute="bottom" constant="172" id="tiQ-hK-Olh"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="26"/>
@@ -189,7 +182,7 @@
                         <outlet property="todoButton" destination="z4e-yn-fhD" id="wXD-se-Wl3"/>
                         <outlet property="todoPriority" destination="tcU-74-dgf" id="hgU-Gi-ydu"/>
                         <outlet property="todoStatus" destination="wMC-As-9aR" id="fe2-xU-xxp"/>
-                        <outlet property="todoText" destination="bk9-oI-49p" id="j7g-uu-Ay4"/>
+                        <outlet property="todoText" destination="oXm-pO-kxJ" id="gab-Zy-ZLs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="23" sceneMemberID="firstResponder"/>
@@ -203,10 +196,11 @@
             <relationships>
                 <relationship kind="action" name="updatePriority:"/>
                 <relationship kind="action" name="updateStatus:"/>
+                <relationship kind="action" name="updateText:"/>
                 <relationship kind="outlet" name="todoButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="todoPriority" candidateClass="UISegmentedControl"/>
                 <relationship kind="outlet" name="todoStatus" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="todoText" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="todoText" candidateClass="UITextField"/>
             </relationships>
         </class>
         <class className="MasterViewController" superclassName="UITableViewController">

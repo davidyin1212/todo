@@ -2,8 +2,8 @@
 //  Todo.h
 //  todo
 //
-//  Created by Brandon Trebitowski on 8/17/08.
-//  Copyright 2008 __MyCompanyName__. All rights reserved.
+//  Created by David Yin on 2013-05-18.
+//  Copyright (c) 2013 David Yin. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -27,5 +27,7 @@
 - (void)updateStatus:(NSInteger) newStatus;
 - (void)updatePriority:(NSInteger) newPriority;
 - (void)dehydrate;
+- (void)deleteFromDatabase;
++ (NSInteger)insertNewTodoIntoDatabase:(sqlite3 *)database;
 
 @end

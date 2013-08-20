@@ -2,7 +2,7 @@
 //  MasterViewController.m
 //  todo
 //
-//  Created by David Yin on 2013-08-18.
+//  Created by David Yin on 2013-05-18.
 //  Copyright (c) 2013 David Yin. All rights reserved.
 //
 
@@ -26,10 +26,42 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addTodo:)];
+    self.navigationItem.rightBarButtonItem = addButton;
 
 //    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
 //    self.navigationItem.rightBarButtonItem = addButton;
     self.title = @"TODO List";
+}
+
+- (void) addTodo:(id)sender {
+	AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+	
+	if(self.detailsView == nil) {
+		DetailViewController *viewController = [[DetailViewController alloc] init];
+		self.detailsView = viewController;
+	}
+	
+	Todo *todo = [appDelegate addTodo];
+	[self.navigationController pushViewController:self.detailsView animated:YES];
+	self.detailsView.todo = todo;
+	self.detailsView.title = todo.text;
+	[self.detailsView.todoText setText:todo.text];
+	
+}
+
+// Override if you support editing the list
+- (void)tableView:(UITableView *)tableView commitEditingStyle:
+(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+	
+	AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+	Todo *todo = (Todo *)[appDelegate.todos objectAtIndex:indexPath.row];
+	
+	if (editingStyle == UITableViewCellEditingStyleDelete) {
+		[appDelegate removeTodo:todo];
+		// Delete the row from the data source
+		[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
+	}
 }
 
 - (void)viewWillAppear:(BOOL)animated {
