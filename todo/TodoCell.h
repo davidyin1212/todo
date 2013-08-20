@@ -11,14 +11,14 @@
 
 @interface TodoCell : UITableViewCell {
 	Todo        *todo;
-    UILabel     *todoTextLabel;
-    UILabel     *todoPriorityLabel;
-    UIImageView *todoPriorityImageView;
+    IBOutlet UILabel     *todoTextLabel;
+    IBOutlet UILabel     *todoPriorityLabel;
+    IBOutlet UIImageView *todoPriorityImageView;
 }
 
-@property (nonatomic, retain) UILabel     *todoTextLabel;
-@property (nonatomic, retain) UILabel     *todoPriorityLabel;
-@property (nonatomic, retain) UIImageView *todoPriorityImageView;
+@property (nonatomic, retain) IBOutlet UILabel     *todoTextLabel;
+@property (nonatomic, retain) IBOutlet UILabel     *todoPriorityLabel;
+@property (nonatomic, retain) IBOutlet UIImageView *todoPriorityImageView;
 
 - (UIImage *)imageForPriority:(NSInteger)priority;
 

@@ -14,6 +14,8 @@
 
 @implementation MasterViewController
 
+@synthesize detailsView;
+
 - (void)awakeFromNib
 {
     [super awakeFromNib];
@@ -28,6 +30,11 @@
 //    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
 //    self.navigationItem.rightBarButtonItem = addButton;
     self.title = @"TODO List";
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self.tableView reloadData];
+	[super viewWillAppear:animated];
 }
 
 - (void)didReceiveMemoryWarning
@@ -64,10 +71,11 @@
     static NSString *MyIdentifier = @"Tasks";
 	
 //	TodoCell *cell = (TodoCell *)[tableView dequeueReusableCellWithIdentifier:MyIdentifier];
-    TodoCell *cell = [[TodoCell alloc] initWithFrame:CGRectZero reuseIdentifier:MyIdentifier];
-//    if (cell == nil) {
-//		cell = [[TodoCell alloc] initWithFrame:CGRectZero reuseIdentifier:MyIdentifier];
-//	}
+//  TodoCell *cell = [[TodoCell alloc] initWithFrame:CGRectZero reuseIdentifier:MyIdentifier];
+    TodoCell *cell = (TodoCell *)[tableView dequeueReusableCellWithIdentifier:MyIdentifier];
+    if (cell == nil) {
+		cell = [[TodoCell alloc] initWithFrame:CGRectZero reuseIdentifier:MyIdentifier];
+	}
     
 	AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 	Todo *td = [appDelegate.todos objectAtIndex:indexPath.row];
@@ -100,6 +108,45 @@
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    DetailViewController *viewController = [segue destinationViewController];
+    self.detailsView = viewController;
+    NSIndexPath *path = [self.tableView indexPathForSelectedRow];
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    Todo *todo = (Todo *)[appDelegate.todos objectAtIndex:[path row]];
+    if(self.detailsView == nil) {
+//        DetailViewController *viewController = [[DetailViewController alloc]
+//                                                initWithNibName:@"DetailViewController" bundle:[NSBundle mainBundle]];
+//        self.detailsView = viewController;
+    }
+    
+    //[self.navigationController pushViewController:self.detailsView animated:YES];
+    self.detailsView.todo = todo;
+    self.detailsView.title = todo.text;
+    [self.detailsView.todoText setText:todo.text];
+    
+    NSInteger priority = todo.priority - 1;
+    if(priority > 2 || priority < 0) {
+        priority = 1;
+    }
+    priority = 2 - priority;
+    
+    [self.detailsView.todoPriority setSelectedSegmentIndex:priority];
+    
+    if(todo.status == 1) {
+        [self.detailsView.todoButton setTitle:@"Mark As In Progress" forState:UIControlStateNormal];
+        [self.detailsView.todoButton setTitle:@"Mark As In Progress" forState:UIControlStateHighlighted];
+        [self.detailsView.todoStatus setText:@"Complete"];
+    } else {
+        [self.detailsView.todoButton setTitle:@"Mark As Complete" forState:UIControlStateNormal];
+        [self.detailsView.todoButton setTitle:@"Mark As Complete" forState:UIControlStateHighlighted];
+        [self.detailsView.todoStatus setText:@"In Progress"];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    }
 
 //- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 //{

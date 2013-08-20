@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DetailViewController.h"
 
-@interface MasterViewController : UITableViewController
+@interface MasterViewController : UITableViewController {
+    DetailViewController *detailsView;
+}
+
+@property(nonatomic,retain) DetailViewController *detailsView;
 
 @end
